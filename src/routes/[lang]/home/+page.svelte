@@ -21,12 +21,7 @@
     age_range: ["0-17", "18-35", "36-59", "60+"],
     annual_income: ["0-50k/año", "50k-100k/año", "100k-200k", "200+"],
     medicare_enrolled: ["Sí", "No"],
-    doctor_often: [
-      "Constantemente",
-      "Frecuentemente",
-      "A veces",
-      "Nada en absoluto",
-    ],
+    doctor_often: ["Constantemente", "Frecuentemente", "A veces", "Nada"],
     name: {
       value: "",
       placeholder: "Nombre",

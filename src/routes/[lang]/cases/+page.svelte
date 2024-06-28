@@ -18,28 +18,22 @@
   class=" relative h-fit min-h-[70vh] w-full items-center justify-center overflow-clip rounded-b-[5rem] bg-gradient-to-b from-transparent to-blue-200 pb-16 pt-32"
 >
   <div
-    class="z-10 mx-auto text-center flex h-full w-[90%] flex-col justify-center pb-16 pt-8 text-white"
+    class="z-10 mx-auto max-w-xl text-center flex h-full w-[90%] flex-col justify-center pb-16 pt-8 text-white"
   >
     <p class="max-w-xl mx-auto text-2xl font-light text-black/90"></p>
     <p
-      class="text-4xl sm:text-5xl lg:text-6xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
+      class="text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800"
     >
-      {data.lang === "es"
-        ? "Regístrese en el seguro de salud del mercado al precio más bajo"
-        : "Sign up for marketplace health insurance at the most affordable rate"}
+      <span class=" font-bold text-4xl sm:text-5xl lg:text-6xl">
+        {data.lang === "es" ? "Testimonios de Clientes" : "Client Testimonials"}
+      </span>
       <span class="text-lg font-light"
         ><br />
         {data.lang === "es"
-          ? "Haga clic a continuación para comenzar y configurar en menos de 15 minutos"
-          : "Click below to get started, and set up in less than 15 minutes"}
+          ? "Vea las otras familias a las que hemos ayudado"
+          : "See the other families we've helped"}
       </span>
     </p>
-
-    <a
-      href="/{data.lang}/home"
-      class="mt-8 w-fit rounded-full mx-auto bg-blue-500 px-16 py-1 text-xl font-medium text-blue-100 shadow hover:opacity-50"
-      >{data.lang === "es" ? "Llama ahora" : "Enroll now"}</a
-    >
   </div>
   <img
     class="absolute left-0 top-0 h-full w-full object-cover opacity-10"
@@ -58,14 +52,17 @@
       >
         <img
           src={s.image}
-          class="absolute left-0 top-0 h-full w-full object-cover pb-4"
+          class="absolute grayscale left-0 top-0 h-full w-full object-cover"
           alt="beams"
         />
+        <div class="h-full w-full bg-blue-600/20 absolute top-0 left-0"></div>
         <div
-          class="absolute bottom-0 left-0 z-10 h-fit bg-gradient-to-b from-transparent via-gray-100/60 to-gray-100 p-4"
+          class="absolute bottom-0 left-0 z-10 h-1/2 flex flex-col justify-center items-start bg-gradient-to-b via-gray-100/90 to-gray-100 from-transparent p-4"
         >
-          <p class="line-clamp-1 pt-4 text-sm font-medium">{s.company}</p>
-          <h1 class="text-3xl font-light">
+          <p class="line-clamp-1 pt-4 text-sm text-blue-600 font-bold">
+            {s.company}
+          </p>
+          <h1 class="text-3xl line-clamp-2 font-light">
             {data.lang === "es" ? s.title.spanish : s.title.english}
           </h1>
         </div>
