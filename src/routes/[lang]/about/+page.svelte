@@ -20,7 +20,7 @@
   <img
     alt="banner"
     class="absolute left-0 top-0 h-full w-full object-cover opacity-10 grayscale"
-    src="https://gginvestigator.com/wp-content/uploads/2020/05/private-investigator-in-miami-florida-banner-2.jpg"
+    src="/family.webp"
   />
   <div
     class="sm::mx-16 z-10 mx-auto flex h-full w-[90%] flex-col justify-center pb-16 pt-8 text-white"
@@ -37,9 +37,10 @@
         : "Click below to get started, and set up in less than 30 seconds"}
     </p>
 
-    <button
+    <a
+      href="/{data.lang}/home"
       class="mt-8 w-fit rounded-full bg-indigo-500 px-16 py-1 text-xl font-medium text-indigo-100 shadow hover:opacity-50"
-      >{data.lang === "es" ? "Llama ahora" : "Call now"}</button
+      >{data.lang === "es" ? "Llama ahora" : "Enroll now"}</a
     >
   </div>
 </div>
