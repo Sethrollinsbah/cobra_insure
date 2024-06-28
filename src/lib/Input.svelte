@@ -1,24 +1,24 @@
 <script lang="ts">
-  import {twMerge} from 'tailwind-merge';
-  import Text from '$lib/text/Text.svelte';
+  import { twMerge } from "tailwind-merge";
+  import Text from "$lib/text/Text.svelte";
   export let value_place: string | null = null;
-  export let placeholder: string = 'Placeholder';
+  export let placeholder: string = "Placeholder";
 
-  export let placeholder_eg: string = '';
+  export let placeholder_eg: string = "";
 
-  export let type = 'text';
+  export let type = "text";
   export let boolean_disabled: boolean | null;
-  export let className = 'border-red-500';
+  export let className = "border-red-500";
   export let iconavail = false;
-  export let code = '';
+  export let code = "";
 
-  import {formatPhone, phoneFormats} from '$lib/formatPhoneNumber.ts';
+  import { formatPhone, phoneFormats } from "$lib/formatPhoneNumber.ts";
 </script>
 
 <div
   class={twMerge(
-    'relative my-2 h-16 rounded-md ring-1 ring-gray-300 dark:ring-gray-700',
-    className
+    "relative my-2 h-16 shadow rounded-md ring-1 bg-gray-50 overflow-clip ring-gray-300 dark:ring-gray-700",
+    className,
   )}
 >
   <slot name="icon" />
@@ -27,15 +27,15 @@
     class:pl-20={iconavail || (value_place !== null && iconavail)}
     class:peer-focus:pl-20={iconavail || (value_place !== null && iconavail)}
     class={value_place !== null
-      ? 'peer absolute top-2  z-10 h-full w-full rounded-sm bg-transparent px-4 py-2 text-base opacity-100 outline-none transition-all duration-300'
-      : 'peer absolute top-2 z-10 h-full w-full rounded-sm bg-transparent px-4 py-2 text-base opacity-0 outline-none transition-all duration-300 focus:opacity-100'}
+      ? "peer absolute top-2  z-10 h-full w-full rounded-sm bg-transparent px-4 py-2 text-base opacity-100 outline-none transition-all duration-300"
+      : "peer absolute top-2 z-10 h-full w-full rounded-sm bg-transparent px-4 py-2 text-base opacity-0 outline-none transition-all duration-300 focus:opacity-100"}
     name={placeholder}
     placeholder={placeholder_eg}
     bind:value={value_place}
     on:input={() => {
-      if (type === 'tel' && value_place) {
-        value_place = value_place.replace(/\D/g, '');
-        const cleaned = value_place.replaceAll('-', '').replace(/\D/g, '');
+      if (type === "tel" && value_place) {
+        value_place = value_place.replace(/\D/g, "");
+        const cleaned = value_place.replaceAll("-", "").replace(/\D/g, "");
 
         value_place = formatPhone(cleaned, phoneFormats[code]);
       }
@@ -44,8 +44,8 @@
       if (value_place !== null && value_place.length === 0) {
         value_place = null;
       }
-      if (type === 'tel' && value_place) {
-        const cleaned = value_place.replaceAll('-', '').replace(/\D/g, '');
+      if (type === "tel" && value_place) {
+        const cleaned = value_place.replaceAll("-", "").replace(/\D/g, "");
 
         value_place = formatPhone(cleaned, phoneFormats[code]);
       }
@@ -55,14 +55,14 @@
     class={` absolute transition-all duration-300
 ${
   iconavail && value_place != null
-    ? 'left-20 top-2 -translate-x-[15%] scale-75 opacity-50'
+    ? "left-20 top-2 -translate-x-[15%] scale-75 opacity-50"
     : iconavail && (value_place === null || value_place === null)
-      ? 'left-20 top-5 transition-all   duration-300 peer-focus:left-20 peer-focus:top-2 peer-focus:-translate-x-[15%] peer-focus:scale-75 peer-focus:opacity-50'
+      ? "left-20 top-5 transition-all   duration-300 peer-focus:left-20 peer-focus:top-2 peer-focus:-translate-x-[15%] peer-focus:scale-75 peer-focus:opacity-50"
       : !iconavail && (value_place === null || value_place === null)
-        ? ' left-4 top-5  w-fit text-start   peer-focus:left-3 peer-focus:top-2 peer-focus:-translate-x-[12.5%] peer-focus:scale-75 peer-focus:opacity-50'
+        ? " left-4 top-5  w-fit text-start   peer-focus:left-3 peer-focus:top-2 peer-focus:-translate-x-[12.5%] peer-focus:scale-75 peer-focus:opacity-50"
         : !iconavail && value_place != null
-          ? '   left-3 top-2  w-fit   -translate-x-[12.5%] scale-75 text-start opacity-50'
-          : ''
+          ? "   left-3 top-2  w-fit   -translate-x-[12.5%] scale-75 text-start opacity-50"
+          : ""
 } `}
     for={placeholder}
     ><Text

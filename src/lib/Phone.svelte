@@ -1,24 +1,24 @@
 <script lang="ts">
-  import {formatPhone, phoneFormats} from '$lib/formatPhoneNumber.ts';
-  import Input from './Input.svelte';
-  import country_codes from '$lib/country_codes.json';
-  import {afterUpdate} from 'svelte';
+  import { formatPhone, phoneFormats } from "$lib/formatPhoneNumber.ts";
+  import Input from "./Input.svelte";
+  import country_codes from "$lib/country_codes.json";
+  import { afterUpdate } from "svelte";
 
   export let items = [
     {
-      text: 'Upps'
-    }
+      text: "Upps",
+    },
   ];
 
   afterUpdate(() => {});
-  export let className = '';
-  export let valu = 'phone';
-  export let theme_name = 'country';
-  export let option = '';
+  export let className = "";
+  export let valu = "phone";
+  export let theme_name = "country";
+  export let option = "";
   export let show = false;
-  export let number: string | null = '';
-  export let code: string | null = 'US';
-  export let search_country_code = '';
+  export let number: string | null = "";
+  export let code: string | null = "US";
+  export let search_country_code = "";
 
   let dialog: HTMLDialogElement; // HTMLDialogElement
 
@@ -30,7 +30,8 @@
     type="tel"
     boolean_disabled={false}
     placeholder={valu}
-    placeholder_eg={formatPhone('12345678901', phoneFormats[code])}
+    className="overflow-clip "
+    placeholder_eg={formatPhone("12345678901", phoneFormats[code])}
     {code}
     iconavail={true}
     bind:value_place={number}
@@ -46,7 +47,7 @@
           class="border-r-1 peer relative left-0 top-0 z-20 flex h-full w-14 items-center justify-center border-gray-900 text-center text-sm font-medium focus:outline-none dark:border-gray-100"
           type="button"
         >
-          {#each country_codes.filter(c => c.code === code) as c}
+          {#each country_codes.filter((c) => c.code === code) as c}
             {#if c.code}
               <p class="ml-4 w-4 bg-transparent text-xl">{c.flag}</p>
             {/if}
@@ -85,14 +86,14 @@
               autocomplete="off"
             />
             <!-- Dropdown content goes here -->
-            {#each country_codes.filter(country => country.name
+            {#each country_codes.filter((country) => country.name
                 .toLowerCase()
                 .includes(search_country_code.toLowerCase())) as c}
               <button
                 on:click={() => {
                   code = c.code;
                   if (number) {
-                    const cleaned = number.replace(/\D/g, '');
+                    const cleaned = number.replace(/\D/g, "");
 
                     number = formatPhone(cleaned, phoneFormats[code]);
                     show = false;

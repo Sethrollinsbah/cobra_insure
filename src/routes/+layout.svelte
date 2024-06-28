@@ -13,11 +13,6 @@
     [`/${page_lang}/about`, "About", "Acerca"],
     [`/${page_lang}/cases`, "Cases", "Casos"],
     [`/${page_lang}/faq`, "FAQ", "Preg."],
-    [
-      "https://insurance-call-center.my.connect.aws/home",
-      "Client Portal",
-      "Portal del Cliente",
-    ],
   ];
 </script>
 
@@ -26,7 +21,7 @@
     <section class="w-full">
       <slot />
       <footer
-        class="flex h-fit min-h-16 w-full flex-col items-center justify-between space-y-2 bg-gray-200 px-4 py-4 text-xs font-light text-gray-600 md:flex-row md:space-y-0"
+        class="flex h-fit min-h-16 w-full text-center md:text-end flex-col items-center justify-between space-y-2 bg-gray-200 px-4 py-4 text-xs font-light text-gray-600 md:flex-row md:space-y-0"
       >
         <div class="flex divide-x-[1px] divide-gray-400/50">
           {#each pages_routes as pr}
@@ -35,9 +30,21 @@
             >
           {/each}
         </div>
-        <p class="">
-          Copyright © 2024 Ninoska Martinez Inc. All rights reserved.
-        </p>
+        {#if data.lang === "es"}
+          <p class="">
+            Copyright © 2024 Alexander Health Consulting Inc. Todos los
+            derechos reservados.
+            <br />
+            <i>Número de licencia: G1341031 </i>
+          </p>
+        {:else}
+          <p>
+            Copyright © 2024 Alexander Health Consulting Inc. All rights
+            reserved.
+            <br />
+            <i class="mx-auto"> License number: G1341031 </i>
+          </p>
+        {/if}
       </footer>
     </section>
   </section>

@@ -272,8 +272,8 @@
   <div class="hidden w-full items-center justify-end space-x-4 md:flex">
     <a
       class="w-fit rounded-full bg-gray-200 px-8 py-1 font-medium text-gray-500 shadow hover:opacity-50"
-      href={`https://insurance-call-center.my.connect.aws/home`}
-      >{data.lang === "es" ? "Portal del Cliente" : "Client Portal"}</a
+      href={data.lang === "es" ? "/en/home" : "/es/home"}
+      >{data.lang === "es" ? "English" : "Español"}</a
     >
   </div>
   <div class="md:hidden">

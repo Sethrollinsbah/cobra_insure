@@ -256,7 +256,7 @@
                   {:else}
                     {#each value as c}
                       <button
-                        class="w-full capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
+                        class="w-full shadow bg-gray-50 capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
                         on:click={() => {
                           customer_data.age_range = c;
                           show = 1 + i;
@@ -335,7 +335,7 @@
                   {:else}
                     {#each value as c}
                       <button
-                        class="w-full capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
+                        class="w-full shadow bg-gray-50 capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
                         on:click={() => {
                           customer_data.age_range = c;
                           show = 1 + i;
@@ -421,8 +421,8 @@
     </div>
     <p class="mx-auto my-8 w-[90%] max-w-sm text-center text-4xl font-medium">
       {data.lang === "es"
-        ? "Tu equipo de confianza para casos privados"
-        : "Your trusted agent for private cases"}
+        ? "Confiable en todo el sur de Florida"
+        : "Trusted throughout South Florida"}
     </p>
     <div
       class="w-fit space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row"
