@@ -1,44 +1,45 @@
 <script>
-  import {caseStudies} from '$lib/content/featured_cases.ts';
+  import { caseStudies } from "$lib/content/featured_cases.ts";
 
   export let data;
   let services = [
-    ['privacy.svg', 'Privacy'],
-    ['warnings.svg', 'Warning'],
-    ['location.svg', 'Locations'],
-    ['book.svg', 'Research'],
-    ['globe.svg', 'Location agnostic'],
-    ['bank.svg', 'Financing options']
+    ["privacy.svg", "Privacy"],
+    ["warnings.svg", "Warning"],
+    ["location.svg", "Locations"],
+    ["book.svg", "Research"],
+    ["globe.svg", "Location agnostic"],
+    ["bank.svg", "Financing options"],
   ];
   let service = [[], []];
   let phone = 12345;
 </script>
 
 <div
-  class=" relative h-fit min-h-[70vh] w-full items-center justify-center overflow-clip rounded-b-[5rem] bg-gradient-to-b from-transparent to-indigo-200 pb-16 pt-32"
+  class=" relative h-fit min-h-[70vh] w-full items-center justify-center overflow-clip rounded-b-[5rem] bg-gradient-to-b from-transparent to-blue-200 pb-16 pt-32"
 >
-  <div class="relative mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2">
-    <div
-      class="z-10 mx-auto flex h-full w-[90%] max-w-md flex-col justify-evenly space-y-6"
+  <div
+    class="z-10 mx-auto text-center flex h-full w-[90%] flex-col justify-center pb-16 pt-8 text-white"
+  >
+    <p class="max-w-xl mx-auto text-2xl font-light text-black/90"></p>
+    <p
+      class="text-4xl sm:text-5xl lg:text-6xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
     >
-      <p
-        class="w-fit rounded-md px-4 text-sm text-indigo-500 ring-1 ring-indigo-500"
-      >
-        Case Studies
-      </p>
-      <p class="font-serif text-5xl text-indigo-950">
-        Getting the Intel You Need, Nothing More.
-      </p>
-      <p>
-        When in the market for a private investigator, it is important to trust
-        the person you pick. We strive to recover the information needed within
-        the parameters set by our clients.
-      </p>
-      <button
-        class="w-fit rounded-full bg-indigo-500 px-8 py-1 font-medium text-indigo-100"
-        >Call Us</button
-      >
-    </div>
+      {data.lang === "es"
+        ? "Regístrese en el seguro de salud del mercado al precio más bajo"
+        : "Sign up for marketplace health insurance at the most affordable rate"}
+      <span class="text-lg font-light"
+        ><br />
+        {data.lang === "es"
+          ? "Haga clic a continuación para comenzar y configurar en menos de 15 minutos"
+          : "Click below to get started, and set up in less than 15 minutes"}
+      </span>
+    </p>
+
+    <a
+      href="/{data.lang}/home"
+      class="mt-8 w-fit rounded-full mx-auto bg-blue-500 px-16 py-1 text-xl font-medium text-blue-100 shadow hover:opacity-50"
+      >{data.lang === "es" ? "Llama ahora" : "Enroll now"}</a
+    >
   </div>
   <img
     class="absolute left-0 top-0 h-full w-full object-cover opacity-10"
@@ -65,7 +66,7 @@
         >
           <p class="line-clamp-1 pt-4 text-sm font-medium">{s.company}</p>
           <h1 class="text-3xl font-light">
-            {data.lang === 'es' ? s.title.spanish : s.title.english}
+            {data.lang === "es" ? s.title.spanish : s.title.english}
           </h1>
         </div>
       </a>

@@ -33,6 +33,8 @@
   },
   "type": "module",
   "dependencies": {
+    "@aws-sdk/client-connect": "^3.606.0",
+    "@aws-sdk/client-ses": "^3.606.0",
     "@neoconfetti/svelte": "^2.2.1",
     "@neodrag/svelte": "^2.0.6",
     "@sveltejs/adapter-cloudflare": "^4.1.0",

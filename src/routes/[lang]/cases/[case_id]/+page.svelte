@@ -1,20 +1,20 @@
 <script>
-  import SvelteMarkdown from 'svelte-markdown';
-  import {Strong, Para, ListItem, List, Link, Header} from '$lib/components';
-  import {goto} from '$app/navigation';
-  import {page} from '$app/stores';
-  import {caseStudies} from '$lib/content/featured_cases.ts';
+  import SvelteMarkdown from "svelte-markdown";
+  import { Strong, Para, ListItem, List, Link, Header } from "$lib/components";
+  import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+  import { caseStudies } from "$lib/content/featured_cases.ts";
 
   export let data;
   async function getCaseStudyById(id) {
-    return caseStudies.find(caseStudy => caseStudy.id === id);
+    return caseStudies.find((caseStudy) => caseStudy.id === id);
   }
 </script>
 
 {#await getCaseStudyById($page.params.case_id)}
   <p>loading</p>
 {:then study}
-  <section class="h-full w-full bg-indigo-500">
+  <section class="h-full w-full bg-blue-500">
     <div
       class="mb-16 mt-28 w-full border-b-[1px] border-t-[1px] border-gray-50/20 py-2 font-light text-gray-100"
     >
@@ -47,16 +47,16 @@
       </div>
     </div>
     <div class="mx-auto w-[90%]">
-      <p class="text-lg font-medium text-indigo-100">{study.company}</p>
+      <p class="text-lg font-medium text-blue-100">{study.company}</p>
       <p
         class="mt-8 max-w-4xl text-4xl font-medium text-gray-100 sm:text-5xl lg:text-6xl"
       >
-        {data.lang === 'es' ? study.title.spanish : study.title.english}
+        {data.lang === "es" ? study.title.spanish : study.title.english}
       </p>
     </div>
   </section>
   <section class="grid-row-2 relative grid h-full min-h-screen w-full">
-    <div class="h-full w-full bg-indigo-500"></div>
+    <div class="h-full w-full bg-blue-500"></div>
     <div class="h-full w-full"></div>
     <img
       src={`${study?.image}`}
@@ -66,7 +66,7 @@
   </section>
   <section class="mx-auto w-[90%] max-w-lg">
     <SvelteMarkdown
-      source={data.lang === 'es'
+      source={data.lang === "es"
         ? study?.client_story.spanish
         : study?.client_story.english}
       renderers={{
@@ -75,7 +75,7 @@
         strong: Strong,
         listitem: ListItem,
         link: Link,
-        list: List
+        list: List,
       }}
     />
   </section>

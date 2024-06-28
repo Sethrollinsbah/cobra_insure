@@ -9,12 +9,15 @@
   const page_lang = data.lang || "en";
 
   let pages_routes = [
-    ["home", "Home", "Inicio"],
-    ["about", "About", "Acerca"],
-    ["services", "Services", "Servicios"],
-    ["cases", "Cases", "Casos"],
-    ["faq", "FAQ", "Preg."],
-    ["client", "Client Portal", "Portal del Cliente"],
+    [`/${page_lang}/home`, "Home", "Inicio"],
+    [`/${page_lang}/about`, "About", "Acerca"],
+    [`/${page_lang}/cases`, "Cases", "Casos"],
+    [`/${page_lang}/faq`, "FAQ", "Preg."],
+    [
+      "https://insurance-call-center.my.connect.aws/home",
+      "Client Portal",
+      "Portal del Cliente",
+    ],
   ];
 </script>
 
@@ -27,7 +30,7 @@
       >
         <div class="flex divide-x-[1px] divide-gray-400/50">
           {#each pages_routes as pr}
-            <a class="line-clamp-1 w-fit px-2" href={`/${page_lang}/${pr[0]}`}
+            <a class="line-clamp-1 w-fit px-2" href={pr[0]}
               >{data.lang === "es" ? pr[2] : pr[1]}</a
             >
           {/each}

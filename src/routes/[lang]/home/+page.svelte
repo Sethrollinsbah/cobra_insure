@@ -3,6 +3,7 @@
   import Input from "$lib/Input.svelte";
   import Phone from "$lib/Phone.svelte";
   import { tick } from "svelte";
+  import toast from "svelte-french-toast";
 
   export let data;
   let la = data.lang;
@@ -87,25 +88,25 @@
 </script>
 
 <section
-  class="relative bg-indigo-100 w-full h-[80vh] min-h-[30rem] flex flex-col mb-24 justify-between items-center pt-32"
+  class="relative bg-blue-100 w-full h-[80vh] min-h-[30rem] flex flex-col mb-24 justify-between items-center pt-32"
 >
   <div class="w-full h-full absolute top-0 left-0 overflow-clip">
     <div
-      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-indigo-600/20 scale-125 size-96 absolute top-0 rounded-full left-0"
+      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-blue-600/20 scale-125 size-96 absolute top-0 rounded-full left-0"
     ></div>
     <div
-      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-indigo-600/30 size-96 absolute top-0 rounded-full left-0"
+      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-blue-600/30 size-96 absolute top-0 rounded-full left-0"
     ></div>
     <div
-      class="ring-1 translate-y-3/4 translate-x-1/2 ring-indigo-600/20 scale-150 size-96 absolute right-0 rounded-full bottom-0"
+      class="ring-1 translate-y-3/4 translate-x-1/2 ring-blue-600/20 scale-150 size-96 absolute right-0 rounded-full bottom-0"
     ></div>
     <div
-      class="ring-1 translate-y-1/2 translate-x-1/2 ring-indigo-600/30 size-96 absolute right-0 rounded-full bottom-0"
+      class="ring-1 translate-y-1/2 translate-x-1/2 ring-blue-600/30 size-96 absolute right-0 rounded-full bottom-0"
     ></div>
   </div>
   <div class="lg:max-w-2xl max-w-lg w-[90%]">
     <p
-      class="text-4xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
+      class="text-4xl sm:text-5xl lg:text-6xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
     >
       {data.lang === "es"
         ? "Regístrese en el seguro de salud del mercado al precio más bajo"
@@ -117,7 +118,7 @@
   >
     <p
       class:hidden={show >= 7}
-      class="w-full flex px-4 justify-between bg-indigo-200 font-bold h-fit text-center py-4"
+      class="w-full flex px-4 justify-between bg-blue-200 font-bold h-fit text-center py-4"
     >
       <span class="size-5 my-auto"
         ><button
@@ -129,7 +130,7 @@
         >
           <svg
             viewBox="0 0 24 24"
-            class="stroke-indigo-800 size-full stroke-2"
+            class="stroke-blue-800 size-full stroke-2"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
@@ -183,7 +184,7 @@
         class="w-full h-4 rounded-full ring-1 relative ring-gray-600 overflow-clip"
       >
         <div
-          class="w-full absolute flex justify-end duration-300 ease-in-out transition-all left-0 top-0 h-4 bg-indigo-600 rounded-full"
+          class="w-full absolute flex justify-end duration-300 ease-in-out transition-all left-0 top-0 h-4 bg-blue-600 rounded-full"
           style="transform: translateX({-show_percent}%);"
         >
           <p class="text-white ml-auto pr-2 text-xs z-10">
@@ -218,9 +219,17 @@
                       ></Input>
                       <button
                         on:click={() => {
-                          show = 6;
+                          console.log(customer_data.name);
+                          if (
+                            customer_data.name === null ||
+                            customer_data.name.length === 0
+                          ) {
+                            toast("Por favor, escriba su nombre");
+                          } else {
+                            show = 6;
+                          }
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-indigo-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -239,7 +248,7 @@
                           show = 7;
                           $show_succ_mod = true;
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-indigo-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -247,7 +256,7 @@
                   {:else}
                     {#each value as c}
                       <button
-                        class="w-full capitalize rounded-xl hover:bg-indigo-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
+                        class="w-full capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
                         on:click={() => {
                           customer_data.age_range = c;
                           show = 1 + i;
@@ -282,9 +291,17 @@
                       ></Input>
                       <button
                         on:click={() => {
-                          show = 6;
+                          console.log(customer_data.name);
+                          if (
+                            customer_data.name === null ||
+                            customer_data.name.length === 0
+                          ) {
+                            toast("Please enter your name");
+                          } else {
+                            show = 6;
+                          }
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-indigo-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -300,10 +317,17 @@
                       ></Phone>
                       <button
                         on:click={() => {
-                          show = 7;
-                          $show_succ_mod = true;
+                          if (
+                            customer_data.phone === null ||
+                            customer_data.phone.length < 8
+                          ) {
+                            toast("Please enter your phone number");
+                          } else {
+                            show = 7;
+                            $show_succ_mod = true;
+                          }
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-indigo-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -311,7 +335,7 @@
                   {:else}
                     {#each value as c}
                       <button
-                        class="w-full capitalize rounded-xl hover:bg-indigo-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
+                        class="w-full capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
                         on:click={() => {
                           customer_data.age_range = c;
                           show = 1 + i;
@@ -331,7 +355,7 @@
             <div class="grid grid-cols-3 h-fit m-auto w-full max-w-12">
               {#each Array.from({ length: 3 }) as _, i}
                 <div
-                  class="size-2 bg-indigo-600 grow rounded-full m-auto"
+                  class="size-2 bg-blue-600 grow rounded-full m-auto"
                   class:grow={i === 0}
                   class:grow1={i === 1}
                   class:grow2={i === 2}
@@ -411,12 +435,12 @@
             element.scrollIntoView({ behavior: "smooth" });
           }
         }}
-        class="mx-auto rounded-full bg-indigo-500 px-8 py-2 text-lg font-semibold text-indigo-50 shadow"
+        class="mx-auto rounded-full bg-blue-500 px-8 py-2 text-lg font-semibold text-blue-50 shadow"
         >{data.lang === "es" ? "Rodar ahora" : "Enroll now"}
       </button>
       <a
         href="about"
-        class="mx-auto rounded-full bg-gray-50 px-8 py-2 text-lg font-semibold text-indigo-500 shadow"
+        class="mx-auto rounded-full bg-gray-50 px-8 py-2 text-lg font-semibold text-blue-500 shadow"
         >{data.lang === "es" ? "Sobre Alex" : "About Alex"}
       </a>
     </div>

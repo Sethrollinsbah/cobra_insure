@@ -32,7 +32,6 @@
   ];
   let pages_routes = [
     ["about", "About", "Acerca"],
-    ["plans", "Plans", "Servicios"],
     ["cases", "Cases", "Casos"],
     ["faq", "FAQ", "Preg."],
   ];
@@ -102,7 +101,7 @@
         <div
           class:w-full={true}
           class:w-0={false}
-          class="sticky top-16 mb-16 hidden h-[90%] w-full max-w-64 flex-col overflow-clip rounded-xl bg-indigo-200 transition-all duration-200 md:max-w-80 xl:max-w-96"
+          class="sticky top-16 mb-16 hidden h-[90%] w-full max-w-64 flex-col overflow-clip rounded-xl bg-blue-200 transition-all duration-200 md:max-w-80 xl:max-w-96"
         >
           <div class="h-full w-full bg-black"></div>
           <section class="flex w-full flex-col divide-y-[1px] divide-gray-100">
@@ -134,7 +133,7 @@
         class="mx-auto my-6 grid h-fit w-[90%] max-w-4xl grid-rows-2 flex-col overflow-clip rounded-lg shadow-2xl md:grid-cols-2 md:grid-rows-1"
       >
         <div
-          class="flex flex-col bg-gradient-to-tl from-indigo-600 to-blue-600/50 p-8 font-serif text-4xl font-medium text-gray-50"
+          class="flex flex-col bg-gradient-to-tl from-blue-600 to-blue-600/50 p-8 font-serif text-4xl font-medium text-gray-50"
         >
           <p>
             {data.lang === "es" ? "Contáctanos" : "Contact us"}<span
@@ -198,7 +197,7 @@
                 return toast.success("We are hearing from you soon");
               }
             }}
-            class="mx-auto w-32 rounded-lg bg-gradient-to-tl from-indigo-600 to-blue-600/80 py-2 text-center font-medium text-gray-50 transition-all duration-100 active:scale-95 {$name !==
+            class="mx-auto w-32 rounded-lg bg-gradient-to-tl from-blue-600 to-blue-600/80 py-2 text-center font-medium text-gray-50 transition-all duration-100 active:scale-95 {$name !==
               null &&
             $name.length > 3 &&
             $email !== null &&
@@ -257,16 +256,15 @@
     </a>
   </div>
   <div
-    class="hidden w-fit justify-center divide-x-[1px] divide-indigo-400 rounded-full bg-gray-50/70 px-8 py-1 text-sm text-indigo-800/50 backdrop-blur-sm md:flex"
+    class="hidden w-fit justify-center divide-x-[1px] divide-blue-400 rounded-full bg-gray-50/70 px-8 py-1 text-sm text-blue-800/50 backdrop-blur-sm md:flex"
   >
     {#each pages_routes as pr}
       <a
-        class:text-indigo-800={$page.url.pathname
-          .split("/")[2]
-          .toLowerCase() === pr[0].toLowerCase()}
+        class:text-blue-800={$page.url.pathname.split("/")[2].toLowerCase() ===
+          pr[0].toLowerCase()}
         class:font-medium={$page.url.pathname.split("/")[2].toLowerCase() ===
           pr[0].toLowerCase()}
-        class="px-2 transition-all duration-300 hover:text-indigo-300"
+        class="px-2 transition-all duration-300 hover:text-blue-300"
         href={`/${data.lang}/${pr[0]}`}>{data.lang === "es" ? pr[2] : pr[1]}</a
       >
     {/each}
@@ -274,7 +272,7 @@
   <div class="hidden w-full items-center justify-end space-x-4 md:flex">
     <a
       class="w-fit rounded-full bg-gray-200 px-8 py-1 font-medium text-gray-500 shadow hover:opacity-50"
-      href={`/${data.lang}/client`}
+      href={`https://insurance-call-center.my.connect.aws/home`}
       >{data.lang === "es" ? "Portal del Cliente" : "Client Portal"}</a
     >
   </div>
@@ -292,23 +290,23 @@
         <span
           aria-hidden="true"
           class="absolute block h-[2px] w-6 {$nav == true
-            ? 'bg-indigo-600'
-            : 'bg-black group-hover:bg-indigo-500  '} transform transition duration-300 ease-in-out"
+            ? 'bg-blue-600'
+            : 'bg-black group-hover:bg-blue-500  '} transform transition duration-300 ease-in-out"
           class:rotate-45={$nav}
           class:-translate-y-1.5={!$nav}
         />
         <span
           aria-hidden="true"
           class="absolute block h-[2px] w-6 {$nav == true
-            ? 'bg-indigo-600'
-            : 'bg-black group-hover:bg-indigo-500 '}  transform transition duration-300 ease-in-out"
+            ? 'bg-blue-600'
+            : 'bg-black group-hover:bg-blue-500 '}  transform transition duration-300 ease-in-out"
           class:opacity-0={$nav}
         />
         <span
           aria-hidden="true"
           class="absolute block h-[2px] w-6 {$nav == true
-            ? 'bg-indigo-600'
-            : 'bg-black group-hover:bg-indigo-500 '}  transform transition duration-300 ease-in-out"
+            ? 'bg-blue-600'
+            : 'bg-black group-hover:bg-blue-500 '}  transform transition duration-300 ease-in-out"
           class:-rotate-45={$nav}
           class:translate-y-1.5={!$nav}
         />
@@ -348,7 +346,7 @@
 
   <a
     href="tel:12345"
-    class="w-full rounded-b-md bg-indigo-600 py-2 text-sm font-medium text-indigo-100 hover:opacity-50"
+    class="w-full rounded-b-md bg-blue-600 py-2 text-sm font-medium text-blue-100 hover:opacity-50"
     >{data.lang === "es" ? "Llama ahora" : "Call Now"}</a
   >
 </button>

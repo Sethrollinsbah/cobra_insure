@@ -1,7 +1,7 @@
 <script>
-  import FAQ from '$lib/FAQ.svelte';
+  import FAQ from "$lib/FAQ.svelte";
 
-  import {faq} from '$lib/content/faq';
+  import { faq } from "$lib/content/faq";
 </script>
 
 <section
@@ -21,7 +21,7 @@
   >
     <p>
       If you have any questions, we have answers for you here. Incase we didn't
-      answer it, feel free to email us at ...
+      answer it, feel free to email us at support@alexanderconsulting
     </p>
   </div>
 

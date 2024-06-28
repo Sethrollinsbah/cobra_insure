@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {nav} from '$lib/stores';
+  import { nav } from "$lib/stores";
   export let dashboard: string;
 </script>
 
@@ -16,23 +16,23 @@
     <span
       aria-hidden="true"
       class="absolute block h-[2px] w-6 {$nav == true
-        ? 'bg-indigo-600'
-        : 'bg-black group-hover:bg-indigo-300 dark:bg-white dark:group-hover:bg-indigo-500'} transform transition duration-300 ease-in-out"
+        ? 'bg-blue-600'
+        : 'bg-black group-hover:bg-blue-300 dark:bg-white dark:group-hover:bg-blue-500'} transform transition duration-300 ease-in-out"
       class:rotate-45={$nav}
       class:-translate-y-1.5={!$nav}
     />
     <span
       aria-hidden="true"
       class="absolute block h-[2px] w-6 {$nav == true
-        ? 'bg-indigo-600'
-        : 'bg-black group-hover:bg-indigo-400 dark:bg-white dark:group-hover:bg-indigo-700'}  transform transition duration-300 ease-in-out"
+        ? 'bg-blue-600'
+        : 'bg-black group-hover:bg-blue-400 dark:bg-white dark:group-hover:bg-blue-700'}  transform transition duration-300 ease-in-out"
       class:opacity-0={$nav}
     />
     <span
       aria-hidden="true"
       class="absolute block h-[2px] w-6 {$nav == true
-        ? 'bg-indigo-600'
-        : 'bg-black group-hover:bg-indigo-500 dark:bg-white dark:group-hover:bg-indigo-900'}  transform transition duration-300 ease-in-out"
+        ? 'bg-blue-600'
+        : 'bg-black group-hover:bg-blue-500 dark:bg-white dark:group-hover:bg-blue-900'}  transform transition duration-300 ease-in-out"
       class:-rotate-45={$nav}
       class:translate-y-1.5={!$nav}
     />

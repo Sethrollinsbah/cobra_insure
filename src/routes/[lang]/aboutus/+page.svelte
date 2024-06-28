@@ -7,18 +7,18 @@
 </script>
 
 <div
-  class=" relative h-fit min-h-[70vh] w-full items-center justify-center overflow-clip rounded-b-[5rem] bg-gradient-to-b from-transparent to-indigo-200 pb-16 pt-32"
+  class=" relative h-fit min-h-[70vh] w-full items-center justify-center overflow-clip rounded-b-[5rem] bg-gradient-to-b from-transparent to-blue-200 pb-16 pt-32"
 >
   <div class="relative mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2">
     <div
       class="z-10 mx-auto flex h-full w-[90%] max-w-md flex-col justify-evenly space-y-6"
     >
       <p
-        class="w-fit rounded-md px-4 text-sm text-indigo-500 ring-1 ring-indigo-500"
+        class="w-fit rounded-md px-4 text-sm text-blue-500 ring-1 ring-blue-500"
       >
         Case Studies
       </p>
-      <p class="font-serif text-5xl text-indigo-950">
+      <p class="font-serif text-5xl text-blue-950">
         Getting the Intel You Need, Nothing More.
       </p>
       <p>
@@ -27,7 +27,7 @@
         the parameters set by our clients.
       </p>
       <button
-        class="w-fit rounded-full bg-indigo-500 px-8 py-1 font-medium text-indigo-100"
+        class="w-fit rounded-full bg-blue-500 px-8 py-1 font-medium text-blue-100"
         >Call Us</button
       >
     </div>

@@ -1,50 +1,34 @@
 export let services = [
   {
-    title: 'Informática Forense',
+    title: "Selección de Planes de Seguro",
     detail:
-      'Extracción y análisis de datos digitales de dispositivos como computadoras, teléfonos inteligentes y servidores para descubrir evidencia.',
-    english_title: 'Digital Forensics',
+      "Ayudamos a las familias a seleccionar los mejores planes de seguro médico que se adapten a sus necesidades específicas, asegurando la cobertura adecuada para todos los miembros de la familia.",
+    english_title: "Insurance Plan Selection",
     english_detail:
-      'Extraction and analysis of digital data from devices such as computers, smartphones, and servers to uncover evidence.'
+      "We assist families in selecting the best health insurance plans that fit their specific needs, ensuring adequate coverage for all family members.",
   },
   {
-    title: 'Inteligencia de Amenazas Cibernéticas',
+    title: "Administración de Beneficios",
     detail:
-      'Monitoreo y análisis de amenazas y riesgos en línea para proporcionar medidas proactivas de ciberseguridad y proteger los activos digitales de los clientes.',
-    english_title: 'Cyber Threat Intelligence',
+      "Gestionamos y optimizamos los beneficios del seguro médico para maximizar la cobertura y minimizar los costos para las familias y los niños asegurados.",
+    english_title: "Benefits Administration",
     english_detail:
-      "Monitoring and analyzing online threats and risks to provide proactive cybersecurity measures and protect clients' digital assets."
+      "We manage and optimize health insurance benefits to maximize coverage and minimize costs for insured families and children.",
   },
   {
-    title: 'Detección de Vigilancia',
+    title: "Consultoría de Cumplimiento",
     detail:
-      'Identificación y neutralización de esfuerzos de vigilancia contra los clientes, asegurando privacidad y seguridad.',
-    english_title: 'Surveillance Detection',
+      "Asesoramos sobre las regulaciones de seguro médico para garantizar que todas las políticas y prácticas cumplan con las normativas vigentes, protegiendo los derechos de las familias y los niños asegurados.",
+    english_title: "Compliance Consulting",
     english_detail:
-      'Identifying and neutralizing surveillance efforts against clients, ensuring privacy and security.'
+      "We provide guidance on health insurance regulations to ensure that all policies and practices comply with current standards, protecting the rights of insured families and children.",
   },
   {
-    title: 'Verificaciones de Antecedentes',
+    title: "Desarrollo de Estrategias de Salud",
     detail:
-      'Investigaciones exhaustivas de los historiales de individuos, incluyendo empleo, antecedentes penales y situación financiera.',
-    english_title: 'Background Checks',
+      "Creamos estrategias personalizadas de salud familiar para promover el bienestar general y la prevención de enfermedades entre los miembros más jóvenes de la familia.",
+    english_title: "Health Strategy Development",
     english_detail:
-      "Thorough investigations into individuals' histories, including employment, criminal records, and financial status."
+      "We develop customized family health strategies to promote overall well-being and disease prevention among younger family members.",
   },
-  {
-    title: 'Evaluación de Riesgos',
-    detail:
-      'Evaluación de vulnerabilidades y riesgos en los entornos digitales y físicos de los clientes para recomendar medidas de protección.',
-    english_title: 'Risk Assessment',
-    english_detail:
-      "Evaluating vulnerabilities and risks in clients' digital and physical environments to recommend protective measures."
-  },
-  {
-    title: 'Consultoría de Privacidad de Datos',
-    detail:
-      'Asesoramiento a los clientes sobre mejores prácticas y estrategias para proteger información sensible y cumplir con las regulaciones de privacidad.',
-    english_title: 'Data Privacy Consulting',
-    english_detail:
-      'Advising clients on best practices and strategies to protect sensitive information and comply with privacy regulations.'
-  }
 ];
