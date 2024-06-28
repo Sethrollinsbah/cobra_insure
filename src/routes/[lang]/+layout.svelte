@@ -216,36 +216,6 @@
   </section>
 </section>
 
-<Modal bind:showModal={show}>
-  <h2 slot="header">
-    What aspects of private investigation are you interested in today?<br />
-    <span class="text-sm text-gray-400">Select up to three from the list</span>
-  </h2>
-  {#each interests as i}
-    <div class="flex">
-      <input id={`input-${i}`} type="checkbox" class="accent-gray-800" />
-      <label class="ml-2" for={`input-${i}`}>{i}</label>
-    </div>{/each}
-  <div slot="footer">
-    <button
-      on:click={() => {
-        const inter = [];
-        for (let index = 0; index < interests.length; index++) {
-          const element = interests[index];
-          const interest = document.getElementById("input-" + element);
-
-          if (interest.checked === true) {
-            inter.push(interests[index]);
-          }
-        }
-
-        localStorage.setItem("interests", inter);
-      }}
-      class="w-32 rounded-md bg-gradient-to-tl from-gray-900 to-gray-800/90 py-2 font-medium text-gray-50"
-      >Continue</button
-    >
-  </div>
-</Modal>
 <div
   class:hidden={$page.url.pathname.split("/")[2] === "client"}
   class="absolute left-0 top-0 z-20 flex w-full items-center justify-between p-8"
@@ -350,6 +320,7 @@
     >{data.lang === "es" ? "Llama ahora" : "Call Now"}</a
   >
 </button>
+
 <Modal bind:showModal={$show_succ_mod}>
   <section
     class="w-full h-full flex flex-col text-center justify-center items-center"
