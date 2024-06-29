@@ -315,9 +315,9 @@
   {/each}
 
   <a
-    href="tel:12345"
-    class="w-full rounded-b-md bg-blue-600 py-2 text-sm font-medium text-blue-100 hover:opacity-50"
-    >{data.lang === "es" ? "Llama ahora" : "Call Now"}</a
+    href={data.lang === "es" ? "/en/home" : "/es/home"}
+    class="w-full px-2 py-1 text-start bg-gray-200 hover:bg-indigo-200"
+    >{data.lang === "es" ? "English" : "Español"}</a
   >
 </button>
 
