@@ -270,7 +270,7 @@
                 class:translate-x-full={show < i}
                 class:opacity-0={show !== i}
                 class:opacity-100={show === i}
-                class="w-full h-full top-4 left-0 absolute duration-300 transition-all grid grid-cols-2 md:flex gap-4 md:space-x-4 justify-evenly"
+                class="w-full h-fit top-4 left-0 absolute duration-300 transition-all grid grid-cols-2 md:flex gap-4 md:space-x-4 justify-evenly"
               >
                 {#if show < 7}
                   {#if key === "name"}
