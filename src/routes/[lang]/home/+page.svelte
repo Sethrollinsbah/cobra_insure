@@ -189,7 +189,7 @@
       </div>
 
       <div
-        class="w-full h-full relative pt-4 h-32 flex justify-between items-center"
+        class="w-full h-full relative pt-4 min-h-32 flex justify-between items-center"
       >
         {#if show < 7}
           {#if data.lang === "es"}
