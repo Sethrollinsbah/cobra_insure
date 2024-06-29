@@ -99,7 +99,7 @@
       class="ring-1 translate-y-1/2 translate-x-1/2 ring-blue-600/30 size-96 absolute right-0 rounded-full bottom-0"
     ></div>
   </div>
-  <div class="lg:max-w-2xl max-w-lg w-[90%]">
+  <div class="hidden lg:max-w-2xl max-w-lg w-[90%]">
     <p
       class="text-4xl sm:text-5xl lg:text-6xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
     >
