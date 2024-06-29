@@ -174,7 +174,7 @@
       <span class="size-5"></span>
     </p>
 
-    <div class="p-8 w-full">
+    <div class="p-8 w-full h-full">
       <div
         class="w-full h-4 rounded-full ring-1 relative ring-gray-600 overflow-clip"
       >
@@ -188,7 +188,9 @@
         </div>
       </div>
 
-      <div class="w-full relative pt-4 h-32 flex justify-between items-center">
+      <div
+        class="w-full h-full relative pt-4 h-32 flex justify-between items-center"
+      >
         {#if show < 7}
           {#if data.lang === "es"}
             {#each Object.entries(form_p) as [key, value], i}
