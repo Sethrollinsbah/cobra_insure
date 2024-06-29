@@ -109,7 +109,7 @@
     </p>
   </div>
   <div
-    class="rounded-3xl bg-gray-100 shadow-xl overflow-clip translate-y-8 w-[90%] h-fit max-w-4xl"
+    class="rounded-3xl bg-gray-100 shadow-xl overflow-clip translate-y-8 w-[90%] h-full max-w-4xl"
   >
     <p
       class:hidden={show >= 7}
