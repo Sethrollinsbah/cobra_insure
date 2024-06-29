@@ -174,7 +174,7 @@
       <span class="size-5"></span>
     </p>
 
-    <div class="p-8 w-full h-full">
+    <div class="p-8 w-full h-fit">
       <div
         class="w-full h-4 rounded-full ring-1 relative ring-gray-600 overflow-clip"
       >
@@ -189,7 +189,7 @@
       </div>
 
       <div
-        class="w-full h-full relative pt-4 min-h-32 flex justify-between items-center"
+        class="w-full h-fit relative pt-4 min-h-32 flex justify-between items-center"
       >
         {#if show < 7}
           {#if data.lang === "es"}
@@ -272,7 +272,7 @@
                 class:translate-x-full={show < i}
                 class:opacity-0={show !== i}
                 class:opacity-100={show === i}
-                class="w-full h-fit top-4 left-0 absolute duration-300 transition-all grid grid-cols-2 md:flex gap-4 md:space-x-4 justify-evenly"
+                class="w-full h-full top-4 left-0 absolute duration-300 transition-all grid grid-cols-2 md:flex gap-4 md:space-x-4 justify-evenly"
               >
                 {#if show < 7}
                   {#if key === "name"}
