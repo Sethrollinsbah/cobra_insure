@@ -109,7 +109,7 @@
     </p>
   </div>
   <div
-    class="rounded-3xl bg-gray-100 shadow-xl overflow-clip translate-y-8 w-[90%] h-full max-w-4xl"
+    class="rounded-3xl bg-gray-100 shadow-xl overflow-clip translate-y-8 w-[90%] h-fit max-w-4xl"
   >
     <p
       class:hidden={show >= 7}
@@ -174,7 +174,7 @@
       <span class="size-5"></span>
     </p>
 
-    <div class="p-8 w-full h-fit">
+    <div class="p-8 w-full">
       <div
         class="w-full h-4 rounded-full ring-1 relative ring-gray-600 overflow-clip"
       >
@@ -188,7 +188,7 @@
         </div>
       </div>
 
-      <div class="w-full h-fit relative pt-4 flex justify-between items-center">
+      <div class="w-full relative pt-4 h-32 flex justify-between items-center">
         {#if show < 7}
           {#if data.lang === "es"}
             {#each Object.entries(form_p) as [key, value], i}
