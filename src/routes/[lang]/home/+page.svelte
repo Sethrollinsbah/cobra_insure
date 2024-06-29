@@ -99,9 +99,9 @@
       class="ring-1 translate-y-1/2 translate-x-1/2 ring-blue-600/30 size-96 absolute right-0 rounded-full bottom-0"
     ></div>
   </div>
-  <div class="hidden lg:max-w-2xl max-w-lg w-[90%]">
+  <div class="w-[90%]">
     <p
-      class="text-4xl sm:text-5xl lg:text-6xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
+      class="text-3xl sm:text-4xl lg:text-5xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
     >
       {data.lang === "es"
         ? "Regístrese en el seguro de salud del mercado al precio más bajo"
@@ -188,9 +188,7 @@
         </div>
       </div>
 
-      <div
-        class="w-full h-fit relative pt-4 min-h-32 flex justify-between items-center"
-      >
+      <div class="w-full h-fit relative pt-4 flex justify-between items-center">
         {#if show < 7}
           {#if data.lang === "es"}
             {#each Object.entries(form_p) as [key, value], i}
