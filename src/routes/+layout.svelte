@@ -41,13 +41,9 @@
     property="twitter:description"
     content="Alexander is a healthcare insurance agent dedicated to getting his clients the maximum value for their dollar."
   />
-  <meta property="og:image" content="/businesscard.jpeg" />
-  <meta property="twitter:image" content="/businesscard.jpeg" />
-  <meta property="og:image:alt" content="Family Health Insurance" />
-  <meta property="twitter:image:alt" content="Family Health Insurance" />
-  <meta property="og:url" content="AlexanderHealthConsulting.com" />
-  <meta property="twitter:url" content="AlexanderHealthConsulting.com" />
-  <meta property="twitter:card" content="/businesscard.jpeg" />
+  <meta property="og:image" content="/icon.svg" />
+  <meta property="og:url" content="cobrainsure.org" />
+  <meta property="twitter:url" content="cobrainsure.org" />
 </svelte:head>
 
 <section class="flex h-screen w-screen overflow-y-scroll bg-gray-100">
