@@ -283,7 +283,7 @@ font - size: 12px;
 color: hotpink;
 text - decoration: underline;
 margin: 0;
-" href="http://alexanderhealthconsulting.com">Alexander Health Consulting</a>
+" href="http://alexanderhealthconsulting.com">Cobra Insure</a>
 </td>
   </tr>
   < /tbody></table >

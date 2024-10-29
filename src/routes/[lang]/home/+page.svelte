@@ -262,7 +262,7 @@
                             customer_data.name === null ||
                             customer_data.name.length === 0
                           ) {
-                            toast("Por favor, escriba su nombre");
+                            toast.error("Por favor, escriba su nombre");
                           } else {
                             show = 6;
                           }
@@ -334,7 +334,7 @@
                             customer_data.name === null ||
                             customer_data.name.length === 0
                           ) {
-                            toast("Please enter your name");
+                            toast.error("Please enter your name");
                           } else {
                             show = 6;
                           }
@@ -359,7 +359,7 @@
                             customer_data.phone === null ||
                             customer_data.phone.length < 8
                           ) {
-                            toast("Please enter your phone number");
+                            toast.error("Please enter your phone number");
                           } else {
                             show = 7;
                             $show_succ_mod = true;
@@ -430,7 +430,7 @@
       class="text-base sm:text-lg text-start lg:text-xl max-w-3xl my-4 text-gray-500 font-light"
     >
       {data.lang === "es"
-        ? "Simplifique su búsqueda de los mejores planes de seguro con Alex Consulting. Nuestro equipo dedicado le ayudará a encontrar la cobertura más rentable que se ajuste a sus necesidades."
+        ? "Simplifique su búsqueda de los mejores planes de seguro con Cobra Insure. Nuestro equipo dedicado le ayudará a encontrar la cobertura más rentable que se ajuste a sus necesidades."
         : "A Short Term Medical Plan can help you with basic medical coverage during a gap in insurance coverage."}
     </p>
     <div class=" gap-6 w-[90%] max-w-4xl">
@@ -447,8 +447,19 @@
     </div>
   </div>
   <div
-    class="rounded-lg aspect-square max-w-xs w-full mx-auto bg-teal-500"
-  ></div>
+    class="rounded-lg flex flex-col justify-between aspect-square shadow-xl font-serif text-center p-4 max-w-xs w-full mx-auto bg-teal-500"
+  >
+    <div>
+      <h1 class="font-bold text-teal-50 text-4xl">Cobra Insure</h1>
+      <p class="text-base text-teal-50/90">
+        Helping Over 4+ Million Workers Find Affordable Medical Insurance
+      </p>
+    </div>
+    <p class="text-xs mt-auto text-teal-100">
+      CobraInsure.org (a private insurance company) helps connect customers with
+      Cobra Insurance plans. Please contact our Licenced Insurance Agents.
+    </p>
+  </div>
 </div>
 
 <div class="w-[80%] mt-8 max-w-sm h-[1px] bg-gray-200"></div>
@@ -461,14 +472,14 @@
   >
     {data.lang === "es"
       ? "Una manera fácil y eficiente de encontrar el plan de seguro de salud perfecto!"
-      : "An easy and efficient way to discover the perfect health insurance plan!"}
+      : "Find Coverage for Pre-Exisiting Conditions"}
   </p>
   <p
     class="text-base sm:text-lg text-center lg:text-xl max-w-3xl mx-auto my-4 text-gray-500 font-light"
   >
     {data.lang === "es"
       ? "Simplifique su búsqueda de los mejores planes de seguro con Alex Consulting. Nuestro equipo dedicado le ayudará a encontrar la cobertura más rentable que se ajuste a sus necesidades."
-      : "Simplify your search for the best insurance plans with Alex Consulting. Our dedicated team will assist you in finding the most cost-effective coverage that meets your needs."}
+      : "Our members often qualify to get their pre-exising conditions in their plans. Find out if you or your dependants qualify for coverage as well."}
   </p>
 </div>
 <div class="grid md:grid-cols-3 gap-6 w-[90%] max-w-4xl">
@@ -489,14 +500,14 @@
       class="mx-auto group flex sm:hidden flex-col shadow-2xl justify-between font-serif p-8 min-h-80 bg-teal-600 w-full text-gray-50 mb-4 h-full aspect-[9/11] rounded-lg ring-1 relative ring-black/10"
     >
       <div>
-        <p class="text-3xl">Hopefully the yeas<br /> ends before you do</p>
+        <p class="text-3xl">Hopefully the yeas<br /> ends you your job does</p>
         <p class="text-lg text-teal-100 mt-auto">
           Protect yourself from your employer
         </p>
       </div>
       <div class="flex flex-row-reverse text-end items-end justify-between">
         <div class="flex flex-col justify-end">
-          <p class="font-bold">Cobra Insurance</p>
+          <p class="font-bold">CobraInsure</p>
           <span class="font-light text-teal-200">Here for lifes downfalls</span>
         </div>
         <div>
@@ -517,8 +528,10 @@
     <div
       class="mx-auto group sm:flex hidden sm:scale-[70%] sm:w-[48rem] md:scale-[90%] lg:scale-100 flex-col max-h-96 shadow-2xl justify-between font-serif p-8 min-h-80 bg-teal-600 w-full text-gray-50 mb-4 h-full rounded-lg ring-1 relative ring-black/10"
     >
-      <div>
-        <p class="text-4xl">Hopefully the year ends<br /> before you do</p>
+      <div class="">
+        <p class="text-4xl">
+          Hopefully the year ends<br /> before your job does
+        </p>
         <p class="text-lg mt-auto">Protect yourself from your employer</p>
       </div>
       <div class="flex items-end justify-between">
@@ -536,7 +549,7 @@
           </button>
         </div>
         <p class="font-bold">
-          Cobra Insurance<span class="font-light ml-2 text-gray-200"
+          CobraInsure<span class="font-light ml-2 text-gray-200"
             >Here for lifes downfalls</span
           >
         </p>

@@ -18,30 +18,24 @@
 
 <svelte:head>
   <title
-    >Alexander Health Consulting | Health insurance agent ceritified throughout
-    South Florida</title
+    >Cobra Insure | Health insurance agent ceritified throughout South Florida</title
   >
 
   <meta
     property="og:title"
-    content="Alexander Health Consulting | Health insurance agent ceritified throughout South Florida."
+    content="CobraInsure connects you to licensed insurance agents to discuss your eligibility for COBRA Insurance."
   />
   <meta
     property="twitter:title"
-    content="Alexander Health Consulting | Health insurance agent ceritified throughout South Florida."
+    content="CobraInsure connects you to licensed insurance agents to discuss your eligibility for COBRA Insurance."
   />
   <meta
     name="description"
-    content="Alexander is a healthcare insurance agent dedicated to getting his clients the maximum value for their dollar."
-  />
-  <meta
-    name="description"
-    content="Alexander is a healthcare insurance agent dedicated to getting his clients the maximum value for their dollar."
+    content="CobraInsure connects you to licensed insurance agents to discuss your eligibility for COBRA Insurance."
   />
   <meta
     property="og:description"
-    content="Alexander is a healthcare insurance agent dedicated to getting his clients
-  the maximum value for their dollar."
+    content="CobraInsure connects you to licensed insurance agents to discuss your eligibility for COBRA Insurance."
   />
   <meta
     property="twitter:description"
@@ -64,23 +58,17 @@
         class="flex h-fit min-h-16 w-full text-center md:text-end flex-col items-center justify-between space-y-2 bg-gray-200 px-4 py-4 text-xs font-light text-gray-600 md:flex-row md:space-y-0"
       >
         <div class="flex divide-x-[1px] divide-gray-400/50">
-          {#each pages_routes as pr}
-            <a class="line-clamp-1 w-fit px-2" href={pr[0]}
-              >{data.lang === "es" ? pr[2] : pr[1]}</a
-            >
-          {/each}
+          <button>Enroll Now</button>
         </div>
         {#if data.lang === "es"}
           <p class="">
-            Copyright © 2024 Alexander Health Consulting Inc. Todos los
-            derechos reservados.
+            Copyright © 2024 Cobra Insure Inc. Todos los derechos reservados.
             <br />
             <i>Número de licencia: G1341031 </i>
           </p>
         {:else}
           <p>
-            Copyright © 2024 Alexander Health Consulting Inc. All rights
-            reserved.
+            Copyright © 2024 CobraInsure Inc. All rights reserved.
             <br />
             <i class="mx-auto"> License number: G1341031 </i>
           </p>
