@@ -18,9 +18,13 @@
 
 <svelte:head>
   <title
-    >Cobra Insure | Health insurance agent ceritified throughout South Florida</title
+    >Cobra Insure | Health insurance agent certified throughout South Florida</title
   >
 
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Meta Tags -->
   <meta
     property="og:title"
     content="CobraInsure connects you to licensed insurance agents to discuss your eligibility for COBRA Insurance."
@@ -41,12 +45,18 @@
     property="twitter:description"
     content="Alexander is a healthcare insurance agent dedicated to getting his clients the maximum value for their dollar."
   />
-  <meta property="og:image" content="/logo.svg" />
-  <meta property="twitter:image" content="/businesscard.jpeg" />
+
+  <!-- Updated Images -->
+  <meta property="og:image" content="/businesscard.webp" />
+  <meta property="twitter:image" content="/businesscard.webp" />
   <meta property="twitter:image:alt" content="Family Health Insurance" />
-  <meta property="og:url" content="cobrainsure.org" />
-  <meta property="twitter:url" content="cobrainsure.org" />
-  <meta property="twitter:card" content="/businesscard.jpeg" />
+
+  <!-- URLs -->
+  <meta property="og:url" content="https://cobrainsure.org" />
+  <meta property="twitter:url" content="https://cobrainsure.org" />
+
+  <!-- Twitter Card Type -->
+  <meta property="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <section class="flex h-screen w-screen overflow-y-scroll bg-gray-100">
