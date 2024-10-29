@@ -1,7 +1,7 @@
 <!-- ListItem.svelte -->
 
 <script>
-  export let text = '';
+  export let text = "";
   export let task = false;
   export let checked = true;
 </script>
@@ -12,7 +12,7 @@
     <span>{text}</span>
   </div>
 {:else}
-  <span class="text-blue-400">{text}</span>
+  <span class="text-gray-400">{text}</span>
 {/if}
 
 <style>

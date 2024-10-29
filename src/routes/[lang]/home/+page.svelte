@@ -17,10 +17,10 @@
   ];
 
   let form_p = {
-    coverage_type: ["individual", "familia"],
-    age_range: ["0-17", "18-35", "36-59", "60+"],
-    annual_income: ["0-50k/año", "50k-100k/año", "100k-200k", "200+"],
+    coverage_type: ["Sí", "No"],
+    age_range: ["Sí", "No"],
     medicare_enrolled: ["Sí", "No"],
+    annual_income: ["0-50k/año", "50k-100k/año", "100k-200k", "200+"],
     doctor_often: ["Constantemente", "Frecuentemente", "A veces", "Nada"],
     name: {
       value: "",
@@ -30,11 +30,16 @@
     phone: "",
   };
   let form_q = {
-    coverage_type: ["individual", "family"],
-    age_range: ["0-17", "18-35", "36-59", "60+"],
+    coverage_type: ["Yes", "No"],
+    age_range: ["Yes", "No"],
+    medicare_enrolled: [
+      "0 to 6 months",
+      "Less than 1 yr.",
+      "1 to 2 years",
+      "Over 2 years",
+    ],
     annual_income: ["0-50k/yr", "50k-100k/yr", "100k-200k", "200+"],
-    medicare_enrolled: ["Yes", "No"],
-    doctor_often: ["Constantly", "Often", "Sometimes", "Not at all"],
+    doctor_often: ["Yes", "No"],
     name: {
       value: "",
       placeholder: "Name",
@@ -58,6 +63,20 @@
   let show_percent = 1;
   let show_percent_string = "0%";
 
+  let why_short_term = [
+    [
+      "Descubre tus Opciones",
+      "Explora las opciones disponibles junto a uno de nuestros agentes expertos",
+      "Discover COBRA",
+      "COBRA permits individuals who participate in an employer’s group health plan, to continue paying for that plan when it would otherwise end.",
+    ],
+    [
+      "Comparte tu Historia",
+      "Danos los detalles necesarios para encontrar la mejor opción de seguro para ti",
+      "Federally Qualified Plans",
+      "Find subsidies to reduce your monthly premium while covering your pre-existing conditions at an affordable rate.",
+    ],
+  ];
   let how_it_works = [
     [
       "Comparte tu Historia",
@@ -83,37 +102,61 @@
 </script>
 
 <section
-  class="relative bg-blue-100 w-full h-[80vh] min-h-[30rem] flex flex-col mb-24 justify-between items-center pt-32"
+  class="relative bg-gray-300 w-full h-[80vh] min-h-[30rem] flex flex-col mb-24 justify-between items-center pt-32"
 >
   <div class="w-full h-full absolute top-0 left-0 overflow-clip">
     <div
-      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-blue-600/20 scale-125 size-96 absolute top-0 rounded-full left-0"
+      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-gray-600/20 scale-125 size-96 absolute top-0 rounded-full left-0"
     ></div>
     <div
-      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-blue-600/30 size-96 absolute top-0 rounded-full left-0"
+      class="ring-1 -translate-y-1/2 -translate-x-1/2 ring-gray-600/30 size-96 absolute top-0 rounded-full left-0"
     ></div>
     <div
-      class="ring-1 translate-y-3/4 translate-x-1/2 ring-blue-600/20 scale-150 size-96 absolute right-0 rounded-full bottom-0"
+      class="ring-1 translate-y-3/4 translate-x-1/2 ring-gray-600/20 scale-150 size-96 absolute right-0 rounded-full bottom-0"
     ></div>
     <div
-      class="ring-1 translate-y-1/2 translate-x-1/2 ring-blue-600/30 size-96 absolute right-0 rounded-full bottom-0"
+      class="ring-1 translate-y-1/2 translate-x-1/2 ring-gray-600/30 size-96 absolute right-0 rounded-full bottom-0"
     ></div>
-  </div>
-  <div class="w-[90%]">
-    <p
-      class="text-3xl sm:text-4xl lg:text-5xl text-transparent text-center bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
-    >
-      {data.lang === "es"
-        ? "Regístrese en el seguro de salud del mercado al precio más bajo"
-        : "Sign up for marketplace health insurance at the most affordable rate"}
-    </p>
   </div>
   <div
-    class="rounded-3xl bg-gray-100 shadow-xl overflow-clip translate-y-8 w-[90%] h-fit max-w-4xl"
+    class="w-[90%] h-full justify-start md:items-center items-start flex flex-col md:grid md:grid-cols-2"
+  >
+    <div
+      class="w-full md:max-w-none max-w-sm mb-auto justify-start md:items-start items-start flex flex-col"
+    >
+      <p
+        class="text-3xl z-10 relative mt-20 sm:text-4xl lg:text-5xl text-transparent text-start bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
+      >
+        <span class:hidden={data.lang !== "es"}
+          >Regístrese en el seguro de salud del mercado al precio más bajo</span
+        >
+        <span class:hidden={data.lang === "es"}
+          >Affordable<br />Cobra Alternative</span
+        >
+      </p>
+      <p
+        class="text-base z-10 md:relative text-transparent text-start bg-clip-text bg-gradient-to-br from-gray-700/80 via-gray-700 to-gray-800 font-bold"
+      >
+        <span class:hidden={data.lang !== "es"}
+          >Regístrese en el seguro de salud del mercado al precio más bajo</span
+        >
+        <span class="text-base font-light" class:hidden={data.lang === "es"}
+          >View the available coverage in your state, with the flexibility to
+          apply & enroll online</span
+        >
+      </p>
+    </div>
+    <img
+      class="h-full top-0 md:relative absolute md:scale-100 scale-75 md:opacity-75 opacity-50 object-cover w-full"
+      src="/cobra.tiff"
+    />
+  </div>
+  <div
+    class="rounded-3xl bottom-0 absolute bg-gray-100 shadow-xl overflow-clip z-20 translate-y-36 sm:translate-y-24 w-[90%] h-fit max-w-4xl"
   >
     <p
       class:hidden={show >= 7}
-      class="w-full flex px-4 justify-between bg-blue-200 font-bold h-fit text-center py-4"
+      class="w-full flex px-4 justify-between bg-teal-200 text-teal-950 font-bold h-fit text-center py-4"
     >
       <span class="size-5 my-auto"
         ><button
@@ -125,7 +168,7 @@
         >
           <svg
             viewBox="0 0 24 24"
-            class="stroke-blue-800 size-full stroke-2"
+            class="stroke-teal-800 size-full stroke-2"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
@@ -146,23 +189,23 @@
       {show === 0
         ? data.lang === "es"
           ? "¿Está buscando cobertura individual o familiar?"
-          : "Are you looking for individual or family coverage?"
+          : "Have you recently lost your job or experienced a reduction in work hours?"
         : show === 1
           ? data.lang === "es"
             ? "¿Cuántos años tiene?"
-            : "How old are you?"
-          : show === 2
+            : "Were you enrolled in a employer sponsored health insurance plan?"
+          : show === 3
             ? data.lang === "es"
               ? "¿Cuál es el ingreso anual total de su hogar?"
               : "What is your household total annual income?"
-            : show === 3
+            : show === 2
               ? data.lang === "es"
                 ? "¿Está actualmente inscrito en las Partes A o B de Medicare?"
-                : "Are you currently enrolled in Medicare Parts A or B?"
+                : "How long were you enrolled before losing coverage?"
               : show === 4
                 ? data.lang === "es"
                   ? "¿Con qué frecuencia ve a un médico?"
-                  : "How often do you see a doctor?"
+                  : "Are you a dependent of someone who had employer-sponsored health coverage?"
                 : show === 5
                   ? data.lang === "es"
                     ? "¿Cuál es su nombre?"
@@ -179,7 +222,7 @@
         class="w-full h-4 rounded-full ring-1 relative ring-gray-600 overflow-clip"
       >
         <div
-          class="w-full absolute flex justify-end duration-300 ease-in-out transition-all left-0 top-0 h-4 bg-blue-600 rounded-full"
+          class="w-full absolute flex justify-end duration-300 ease-in-out transition-all left-0 top-0 h-4 bg-teal-600 rounded-full"
           style="transform: translateX({-show_percent}%);"
         >
           <p class="text-white ml-auto pr-2 text-xs z-10">
@@ -224,7 +267,7 @@
                             show = 6;
                           }
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-teal-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -243,7 +286,7 @@
                           show = 7;
                           $show_succ_mod = true;
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-teal-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -251,7 +294,7 @@
                   {:else}
                     {#each value as c}
                       <button
-                        class="w-full shadow bg-gray-50 capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
+                        class="w-full shadow bg-gray-50 capitalize rounded-xl hover:bg-teal-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
                         on:click={() => {
                           customer_data.age_range = c;
                           show = 1 + i;
@@ -279,7 +322,7 @@
                     >
                       <Input
                         boolean_disabled={false}
-                        className="w-full"
+                        className="w-full h-full min-h-16"
                         bind:value_place={customer_data.name}
                         placeholder={value.placeholder}
                         placeholder_eg={value.eg}
@@ -296,7 +339,7 @@
                             show = 6;
                           }
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-teal-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -322,7 +365,7 @@
                             $show_succ_mod = true;
                           }
                         }}
-                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-blue-600"
+                        class="rounded-md py-2 w-fit mx-auto max-w-xs px-6 relative font-medium text-lg text-gray-100 bg-teal-600"
                       >
                         {data.lang === "es" ? "Continue" : "Continue"}
                       </button>
@@ -330,7 +373,7 @@
                   {:else}
                     {#each value as c}
                       <button
-                        class="w-full shadow bg-gray-50 capitalize rounded-xl hover:bg-blue-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
+                        class="w-full shadow bg-gray-50 capitalize rounded-xl hover:bg-teal-600 active:scale-95 hover:text-gray-100 duration-300 transition-all h-fit ring-1 ring-gray-200 py-4"
                         on:click={() => {
                           customer_data.age_range = c;
                           show = 1 + i;
@@ -350,7 +393,7 @@
             <div class="grid grid-cols-3 h-fit m-auto w-full max-w-12">
               {#each Array.from({ length: 3 }) as _, i}
                 <div
-                  class="size-2 bg-blue-600 grow rounded-full m-auto"
+                  class="size-2 bg-gray-600 grow rounded-full m-auto"
                   class:grow={i === 0}
                   class:grow1={i === 1}
                   class:grow2={i === 2}
@@ -370,7 +413,45 @@
     <img src={c} class="size-16 object-contain mx-auto" />
   {/each}
 </div>
-<div class="w-[80%] max-w-sm h-[1px] bg-gray-200"></div>
+<div class="w-[80%] mt-4 max-w-sm h-[1px] bg-gray-200"></div>
+<p class="font-bold text-gray-500">
+  {data.lang === "es" ? "Cómo funciona" : "Temporary Insurance"}
+</p>
+<div class="w-[90%] grid gap-6 pt-8 grid-cols-1 sm:grid-cols-[1fr_300px]">
+  <div class="mx-auto max-w-3xl">
+    <p
+      class="text-2xl sm:text-3xl text-start lg:text-4xl max-w-2xl text-gray-700 font-bold"
+    >
+      {data.lang === "es"
+        ? "Una manera fácil y eficiente de encontrar el plan de seguro de salud perfecto!"
+        : "Why get Short-Term Health Insurance?"}
+    </p>
+    <p
+      class="text-base sm:text-lg text-start lg:text-xl max-w-3xl my-4 text-gray-500 font-light"
+    >
+      {data.lang === "es"
+        ? "Simplifique su búsqueda de los mejores planes de seguro con Alex Consulting. Nuestro equipo dedicado le ayudará a encontrar la cobertura más rentable que se ajuste a sus necesidades."
+        : "A Short Term Medical Plan can help you with basic medical coverage during a gap in insurance coverage."}
+    </p>
+    <div class=" gap-6 w-[90%] max-w-4xl">
+      {#each why_short_term as hiw}
+        <div class="w-full h-fit text-start mt-4 rounded-2xl">
+          <p class="text-xl text-gray-500 font-bold">
+            {data.lang === "es" ? hiw[0] : hiw[2]}
+          </p>
+          <p class="text-lg text-gray-500 font-light">
+            {data.lang === "es" ? hiw[1] : hiw[3]}
+          </p>
+        </div>
+      {/each}
+    </div>
+  </div>
+  <div
+    class="rounded-lg aspect-square max-w-xs w-full mx-auto bg-teal-500"
+  ></div>
+</div>
+
+<div class="w-[80%] mt-8 max-w-sm h-[1px] bg-gray-200"></div>
 <p class="font-bold text-gray-500">
   {data.lang === "es" ? "Cómo funciona" : "Our Process"}
 </p>
@@ -402,42 +483,64 @@
     </div>
   {/each}
 </div>
-<section class="mt-8">
-  <div class="mx-auto mb-16 flex flex-col items-center justify-center">
-    <div class="mx-auto group size-60 rounded-lg ring-1 relative ring-black/10">
-      <img
-        class="w-full group-hover:h-[107%] h-[105%] ease-in-out group-hover:grayscale-0 grayscale absolute bottom-0 duration-300 transition-all object-contain"
-        src="/Subject.png"
-        alt="zach"
-      />
-      <div
-        class="w-full z-10 absolute rounded-lg bottom-0 h-full bg-gradient-to-t from-gray-100 via-gray-100/50 to-transparent"
-      ></div>
-    </div>
-    <p class="mx-auto my-8 w-[90%] max-w-sm text-center text-4xl font-medium">
-      {data.lang === "es"
-        ? "Confiable en todo el sur de Florida"
-        : "Trusted throughout South Florida"}
-    </p>
+<section class="my-16 h-full w-fit sm:max-w-none max-w-sm">
+  <div class="flex h-full w-full flex-col items-center justify-center">
     <div
-      class="w-fit space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row"
+      class="mx-auto group flex sm:hidden flex-col shadow-2xl justify-between font-serif p-8 min-h-80 bg-teal-600 w-full text-gray-50 mb-4 h-full aspect-[9/11] rounded-lg ring-1 relative ring-black/10"
     >
-      <button
-        on:click={() => {
-          tick();
-          const element = document.getElementById("top_of_page");
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-        class="mx-auto rounded-full bg-blue-500 px-8 py-2 text-lg font-semibold text-blue-50 shadow"
-        >{data.lang === "es" ? "Rodar ahora" : "Enroll now"}
-      </button>
-      <a
-        href="about"
-        class="mx-auto rounded-full bg-gray-50 px-8 py-2 text-lg font-semibold text-blue-500 shadow"
-        >{data.lang === "es" ? "Sobre Alex" : "About Alex"}
-      </a>
+      <div>
+        <p class="text-3xl">Hopefully the yeas<br /> ends before you do</p>
+        <p class="text-lg text-teal-100 mt-auto">
+          Protect yourself from your employer
+        </p>
+      </div>
+      <div class="flex flex-row-reverse text-end items-end justify-between">
+        <div class="flex flex-col justify-end">
+          <p class="font-bold">Cobra Insurance</p>
+          <span class="font-light text-teal-200">Here for lifes downfalls</span>
+        </div>
+        <div>
+          <button
+            on:click={() => {
+              tick();
+              const element = document.getElementById("top_of_page");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            class="mx-auto rounded-full ring-1 ring-teal-100 border-t-[1px] border-teal-600 bg-teal-100 px-3 mt-4 py-2 text-base font-semibold text-teal-600 shadow"
+            >{data.lang === "es" ? "Rodar ahora" : "Enroll now"}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mx-auto group sm:flex hidden sm:scale-[70%] sm:w-[48rem] md:scale-[90%] lg:scale-100 flex-col max-h-96 shadow-2xl justify-between font-serif p-8 min-h-80 bg-teal-600 w-full text-gray-50 mb-4 h-full rounded-lg ring-1 relative ring-black/10"
+    >
+      <div>
+        <p class="text-4xl">Hopefully the year ends<br /> before you do</p>
+        <p class="text-lg mt-auto">Protect yourself from your employer</p>
+      </div>
+      <div class="flex items-end justify-between">
+        <div>
+          <button
+            on:click={() => {
+              tick();
+              const element = document.getElementById("top_of_page");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            class="mx-auto rounded-full ring-1 ring-teal-100 border-t-[1px] border-teal-600 bg-teal-100 px-8 mt-4 py-2 text-lg font-semibold text-teal-600 shadow"
+            >{data.lang === "es" ? "Rodar ahora" : "Enroll now"}
+          </button>
+        </div>
+        <p class="font-bold">
+          Cobra Insurance<span class="font-light ml-2 text-gray-200"
+            >Here for lifes downfalls</span
+          >
+        </p>
+      </div>
     </div>
   </div>
 </section>

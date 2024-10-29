@@ -30,11 +30,7 @@
     ["About Us"],
     ["Investigations"],
   ];
-  let pages_routes = [
-    ["about", "About", "Acerca"],
-    ["cases", "Cases", "Casos"],
-    ["faq", "FAQ", "Preg."],
-  ];
+  let pages_routes = [["about", "About", "Acerca"]];
   let show = true;
   let interests = [
     "Phising tests",
@@ -101,19 +97,11 @@
         <div
           class:w-full={true}
           class:w-0={false}
-          class="sticky top-16 mb-16 hidden h-[90%] w-full max-w-64 flex-col overflow-clip rounded-xl bg-blue-200 transition-all duration-200 md:max-w-80 xl:max-w-96"
+          class="sticky top-16 mb-16 hidden h-[90%] w-full max-w-64 flex-col overflow-clip rounded-xl bg-gray-200 transition-all duration-200 md:max-w-80 xl:max-w-96"
         >
           <div class="h-full w-full bg-black"></div>
           <section class="flex w-full flex-col divide-y-[1px] divide-gray-100">
-            {#each pages_routes as p}
-              <a
-                class:underline={$page.url.pathname
-                  .split("/")[2]
-                  .toLowerCase() === p[0].toLowerCase()}
-                href="/"
-                class=" py-4 text-center text-lg">{p[0]}</a
-              >
-            {/each}
+            <a href="/" class=" py-4 text-center text-lg">Call Now</a>
           </section>
         </div>
         {#if page_name === true}
@@ -128,90 +116,6 @@
           <div class="h-screen"></div>
         {/if}
       </section>
-      <div
-        class:hidden={$page.url.pathname.split("/")[2] === "client"}
-        class="mx-auto my-6 grid h-fit w-[90%] max-w-4xl grid-rows-2 flex-col overflow-clip rounded-lg shadow-2xl md:grid-cols-2 md:grid-rows-1"
-      >
-        <div
-          class="flex flex-col bg-gradient-to-tl from-blue-600 to-blue-600/50 p-8 font-serif text-4xl font-medium text-gray-50"
-        >
-          <p>
-            {data.lang === "es" ? "Contáctanos" : "Contact us"}<span
-              class="text-gray-50/50"
-              >{data.lang === "es"
-                ? " para ver si cubrimos tus necesidades"
-                : " to see if we meet your needs"}</span
-            >
-          </p>
-        </div>
-        <div class="flex flex-col justify-evenly bg-gray-50 p-8">
-          <Input
-            placeholder={data.lang === "es" ? "Nombre" : "Name"}
-            placeholder_eg="John Smith"
-            boolean_disabled={false}
-            bind:value_place={$name}
-          ></Input>
-          <Input
-            placeholder={data.lang === "es" ? "Correo Electrónico" : "Email"}
-            bind:value_place={$email}
-            placeholder_eg="johnsmith@mail.co"
-            boolean_disabled={false}
-          ></Input>
-          <Phone
-            bind:code={$code}
-            valu={data.lang === "es" ? "Teléfono" : "Phone"}
-            bind:number={$phone}
-          ></Phone>
-          <Input
-            placeholder={data.lang === "es" ? "Código Postal" : "Zip Code"}
-            placeholder_eg="12345"
-            boolean_disabled={false}
-            bind:value_place={$zip}
-          ></Input>
-          <button
-            on:click={async () => {
-              if (
-                ($name === null || $name.length <= 3) &&
-                ($email === null || $email.length <= 3) &&
-                ($phone === null || $phone.length <= 3) &&
-                ($zip === null || $zip.length <= 3)
-              ) {
-                return toast.error("Complete the form first");
-              }
-              if ($email && /^[^@]+@[^@]+\.[^@]+$/.test($email) === false) {
-                return toast.error("Incorrect email format");
-              }
-              const lead = await fetch("/api/upload_lead", {
-                body: JSON.stringify({
-                  name: $name,
-                  email: $email,
-                  zip: $zip,
-                  created_on: new Date(),
-                  phone: $phone,
-                }),
-                method: "POST",
-              });
-              console.log(lead);
-              if (lead.ok === true) {
-                $show_succ_mod = true;
-                return toast.success("We are hearing from you soon");
-              }
-            }}
-            class="mx-auto w-32 rounded-lg bg-gradient-to-tl from-blue-600 to-blue-600/80 py-2 text-center font-medium text-gray-50 transition-all duration-100 active:scale-95 {$name !==
-              null &&
-            $name.length > 3 &&
-            $email !== null &&
-            $email.length > 3 &&
-            $phone !== null &&
-            $phone.length > 3 &&
-            $zip !== null &&
-            $zip.length > 3
-              ? 'opacity-100'
-              : 'opacity-50'} hover:opacity-50"
-            >{data.lang === "es" ? "Entregar" : "Submit"}</button
-          >
-        </div>
-      </div>
     </section>
   </section>
 </section>
@@ -225,20 +129,7 @@
       <img src="/logo.svg" class=" size-9 object-cover" />
     </a>
   </div>
-  <div
-    class="hidden w-fit justify-center divide-x-[1px] divide-blue-400 rounded-full bg-gray-50/70 px-8 py-1 text-sm text-blue-800/50 backdrop-blur-sm md:flex"
-  >
-    {#each pages_routes as pr}
-      <a
-        class:text-blue-800={$page.url.pathname.split("/")[2].toLowerCase() ===
-          pr[0].toLowerCase()}
-        class:font-medium={$page.url.pathname.split("/")[2].toLowerCase() ===
-          pr[0].toLowerCase()}
-        class="px-2 transition-all duration-300 hover:text-blue-300"
-        href={`/${data.lang}/${pr[0]}`}>{data.lang === "es" ? pr[2] : pr[1]}</a
-      >
-    {/each}
-  </div>
+
   <div class="hidden w-full items-center justify-end space-x-4 md:flex">
     <a
       class="w-fit rounded-full bg-gray-200 px-8 py-1 font-medium text-gray-500 shadow hover:opacity-50"
@@ -247,44 +138,11 @@
     >
   </div>
   <div class="md:hidden">
-    <nav
-      class="group relative flex h-8 w-8 flex-col items-end justify-start"
-      on:click={() => {
-        $nav = !$nav;
-      }}
+    <a
+      class="w-fit rounded-full bg-gray-200 px-8 py-1 font-medium text-gray-500 shadow hover:opacity-50"
+      href={data.lang === "es" ? "/en/home" : "/es/home"}
+      >{data.lang === "es" ? "English" : "Español"}</a
     >
-      <div
-        class="group absolute left-1/2 top-1/2 block w-8 -translate-x-1/2 -translate-y-1/2 transform"
-        class:z-20={$nav}
-      >
-        <span
-          aria-hidden="true"
-          class="absolute block h-[2px] w-6 {$nav == true
-            ? 'bg-blue-600'
-            : 'bg-black group-hover:bg-blue-500  '} transform transition duration-300 ease-in-out"
-          class:rotate-45={$nav}
-          class:-translate-y-1.5={!$nav}
-        />
-        <span
-          aria-hidden="true"
-          class="absolute block h-[2px] w-6 {$nav == true
-            ? 'bg-blue-600'
-            : 'bg-black group-hover:bg-blue-500 '}  transform transition duration-300 ease-in-out"
-          class:opacity-0={$nav}
-        />
-        <span
-          aria-hidden="true"
-          class="absolute block h-[2px] w-6 {$nav == true
-            ? 'bg-blue-600'
-            : 'bg-black group-hover:bg-blue-500 '}  transform transition duration-300 ease-in-out"
-          class:-rotate-45={$nav}
-          class:translate-y-1.5={!$nav}
-        />
-      </div>
-      <div
-        class="absolute bottom-0 z-40 size-80 -translate-y-full bg-white"
-      ></div>
-    </nav>
   </div>
 </div>
 
